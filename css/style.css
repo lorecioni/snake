@@ -1,0 +1,120 @@
+@import url(https://fonts.googleapis.com/css?family=Rancho);
+
+/* BASE STYLES
+------------------------------------------------ */
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body#main {
+	font-family: 'Rancho', sans-serif;
+	font-size: 16px;
+	background: url(../img/background.jpg) no-repeat bottom center scroll;
+    background-color: #000;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+div#container {
+    width: 900px;
+    margin: 0 auto;
+	padding-top: 3em;
+	position: relative;
+}
+
+a.github-ribbon {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+a.github-ribbon img {
+	transform:rotate(-90deg);
+}
+	
+#main h1 {
+    font-size: 7em;
+    text-align: center;
+    color: #FFEF70;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.72);
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+#main h3 {
+    text-align: center;
+    font-weight: normal;
+    margin-top: 0;
+	font-size: 1.7em;
+}
+
+/* GAME
+-------------------------------------------------- */
+
+#canvas-container {
+	margin: 0 auto;
+	overflow: hidden;
+	width: 500px;	
+	height: 360px;
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	-webkit-touch-callout: none;
+	-webkit-user-drag: none;
+	line-height: 0px;
+	position: relative;
+}
+
+canvas#canvas {
+	background: url(../img/yellow.jpg);
+	border-radius: 5px;
+}
+
+div#canvas-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.44);
+    border-radius: 5px;
+    color: white;
+}
+
+div#overlay-inner {
+    width: 84%;
+    height: 91%;
+    padding: .5em;
+    text-align: center;
+    font-size: 5em;
+    line-height: 3em;
+}
+
+div#game-container {
+    position: relative;
+}
+
+div#score-container {
+    position: absolute;
+    top: 0;
+    left: 1em;
+    line-height: 3em;
+    color: white;
+    width: 120px;
+    text-align: center;
+}
+
+div#score-text {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.59);
+    font-size: 3em;
+}
+
+div#score-num {
+    font-size: 2em;
+}
