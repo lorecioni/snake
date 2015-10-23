@@ -100,7 +100,7 @@ div#game-container {
     position: relative;
 }
 
-div#score-container {
+div#score-container, div#speed-container {
     position: absolute;
     top: 0;
     left: 1em;
@@ -110,11 +110,38 @@ div#score-container {
     text-align: center;
 }
 
-div#score-text {
+div#score-text, div#speed-text {
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.59);
     font-size: 3em;
 }
 
 div#score-num {
     font-size: 2em;
+}
+
+div#speed-container {
+    top: 150px;
+}
+
+input#speed-fader {
+    width: 100%;
+}
+
+div#speed-labels {
+    margin-top: -25px;
+    font-size: 1.5em;
+    color: rgba(255, 255, 255, 0.54);
+    position: relative;
+}
+
+span#speed-min {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+span#speed-max {
+    position: absolute;
+    top: 0;
+    right: 0;
 }

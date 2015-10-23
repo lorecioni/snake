@@ -15,7 +15,6 @@ var Game = {
 	//Games variables
 	Paused: true,
 	New: false,
-	FPS: Settings.FPS,
 	Direction: 1, //Directions: 1 : 'right', 2 : 'left', 3 : 'up', 4 : 'down'
 	Score: 0,
 	Snake: [],
@@ -53,7 +52,7 @@ var Game = {
 			Game.Init();
 		}
 		$('#canvas-overlay').fadeOut('fast');
-		Game.Loop = setInterval(Game.Tick, 1000/Game.FPS);	
+		Game.Loop = setInterval(Game.Tick, 1000/Settings.FPS);	
 		Game.Paused = false;
 		Game.New = false;
 	},

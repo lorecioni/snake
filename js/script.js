@@ -7,6 +7,10 @@ $(document).ready(function(e) {
 		$('body').css('height', height);
 		console.log('resize');
 	});
+	
+	$('#speed-fader').change(function(){
+		Settings.FPS = $(this).val();
+	});
 });
 
 
