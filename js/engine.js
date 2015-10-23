@@ -7,7 +7,12 @@ var rect = canvas.getBoundingClientRect();
 //Setting canvas resolution
 setCanvasDPI(canvas, 300);
 
+var img = new Image();
+img.src = "img/fragola.png";	
+
 var Game = {
+	
+	//Games variables
 	Paused: true,
 	New: false,
 	FPS: Settings.FPS,
@@ -16,13 +21,16 @@ var Game = {
 	Snake: [],
 	Food: {},
 	Loop: 0,
+	Fruits: [],
 	PreviousScoreTime: new Date().getTime(),
+	
+	//Games methods
 	Init: function(){
 		Game.Direction = 1;
 		Game.Score = 0;
-		Game.CreateFood();
+		Game.CreateFood(true);
 		Game.CreateSnake();
-		$('#score-num').text(Game.Score.toString());	
+		$('#score-num').text(Game.Score.toString());
 	},
 	
 	Tick: function(){
@@ -73,16 +81,47 @@ var Game = {
 	},
 	
 	DrawFood: function(){
-		Game.DrawCircle(Game.Food.x, Game.Food.y);
+		if(!Game.Food.fruit){
+			Game.DrawCircle(Game.Food.x, Game.Food.y);	
+		} else {
+			Game.DrawFruit();
+		}
+		
 	},
 	
-	CreateFood: function(){
+	CreateFood: function(start){
 		var cw = Settings.BlockSize;
-		Game.Food = {
-			x: Math.round(Math.random()*(width - cw)/cw), 
-			y: Math.round(Math.random()*(height - cw)/cw), 
-		};
-		Game.DrawCircle(Game.Food.x, Game.Food.y);
+		var correct = false;
+				
+		while(!correct){
+			Game.Food = {
+				x: Math.round(Math.random()*(width - cw)/cw), 
+				y: Math.round(Math.random()*(height - cw)/cw), 
+				fruit: false,
+				img: null,
+				value: Settings.ScoreValue
+			};
+			correct = true;
+			for(var i = 0; i < Game.Snake.length; i++){
+				var c = Game.Snake[i];
+				if(c.x == Game.Food.x && c.y == Game.Food.y){
+					correct = false;
+				}
+			}
+		}
+		
+		var percent = Math.random();
+		if(percent > Settings.FruitPercentage && !start){
+			var fruit = Game.Fruits[Math.floor(Math.random()*Game.Fruits.length)];
+			Game.Food.fruit = true;
+			Game.Food.img = fruit.img;
+			Game.Food.value = fruit.value;
+			Game.DrawFruit();
+		} else {
+			Game.DrawCircle(Game.Food.x, Game.Food.y);
+			Game.Food.fruit = false;
+			Game.Food.img = null;
+		}
 	},
 	
 	MoveSnake: function(){
@@ -157,7 +196,7 @@ var Game = {
 		if(Settings.ScoreBasedOnTime){
 			var time = new Date().getTime() - Game.PreviousScoreTime;
 		} else {
-			Game.Score += Settings.ScoreValue;
+			Game.Score += Game.Food.value;
 		}
 		$('#score-num').text(Game.Score.toString());		
 	},
@@ -168,10 +207,31 @@ var Game = {
 		$('#overlay-text').text('Try Again!');
 		Game.Paused = true;
 		Game.New = true;
+	},
+	
+	DrawFruit: function(){
+		var cw = Settings.BlockSize;
+		ctx.drawImage(Game.Food.img, Game.Food.x * cw - 5, Game.Food.y * cw - 5, 
+				Settings.BlockSize + 10, Settings.BlockSize + 10);
+	},
+	
+	PreloadImages: function(){
+		images = ['img/fragola.png', 'img/orange.png', 'img/banana.png',
+					'img/pera.png', 'img/apple.png', 'img/ciliegia.png'];
+		values = [15, 20, 25, 30, 35, 40];
+		for(var i = 0; i < images.length; i++){
+			var img = new Image();
+			img.src = images[i];
+			Game.Fruits.push({img: img, value: values[i]});	
+		}
+		console.log('Images preloaded');
 	}
+		
+
 };
 
 Game.Init();
+Game.PreloadImages();
 
 $(document).on('click', '#overlay-text', function(){
 	var action = $(this).data('action');

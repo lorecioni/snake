@@ -9,5 +9,6 @@ var Settings = {
 	BlockColor: '#822900',
 	FoodColor: 'red',
 	ScoreValue: 10,
-	ScoreBasedOnTime: false
+	ScoreBasedOnTime: false,
+	FruitPercentage: 0.75
 }

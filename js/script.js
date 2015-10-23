@@ -1,8 +1,20 @@
 $(document).ready(function(e) {
     var height = $(window).height();
 	$('body').css('height', height);
+
+	$(window).resize(function(){
+		var height = $(window).height();
+		$('body').css('height', height);
+		console.log('resize');
+	});
 });
 
+
+function preload(arrayOfImages) {
+    $(arrayOfImages).each(function(){
+        $('<img/>')[0].src = this;
+    });
+}
 
 
 CanvasRenderingContext2D.prototype.roundRect = function (x, y, w, h, r) {
