@@ -128,7 +128,7 @@ var Game = {
 		//Create tail and put it on first position of Snake
 		if(headx == Game.Food.x && heady == Game.Food.y){
 			var tail = {x: headx, y: heady};
-			Game.AddScore(Settings.ScoreValue);
+			Game.AddScore(Settings.ScoreValue + Math.round(Settings.FPS * 0.3));
 			//Create new food
 			Game.CreateFood();
 			Game.AddBonus();
@@ -249,8 +249,8 @@ var Game = {
 	},
 	
 	PreloadImages: function(){
-		images = ['img/fragola.png', 'img/orange.png', 'img/banana.png',
-					'img/pera.png', 'img/apple.png', 'img/ciliegia.png'];
+		images = ['img/ciliegia.png', 'img/orange.png', 'img/banana.png',
+					'img/pera.png', 'img/apple.png', 'img/fragola.png'];
 		values = [15, 20, 25, 30, 35, 40];
 		for(var i = 0; i < images.length; i++){
 			var img = new Image();
@@ -278,10 +278,10 @@ $(document).on('keydown', function(e){
 	var c = e.keyCode;
 	var d = Game.Direction;
 	//Arrow keys
-	if(c == 37 && d != 1) { Game.Direction = 2; }
-	else if(c == 38 && d != 4) { Game.Direction = 3; }
-	else if(c == 39 && d != 2) { Game.Direction = 1; }
-	else if(c == 40 && d != 3) { Game.Direction = 4; }
+	if(c == 37 && d != 1) { e.preventDefault(); Game.Direction = 2; }
+	else if(c == 38 && d != 4) { e.preventDefault(); Game.Direction = 3; }
+	else if(c == 39 && d != 2) { e.preventDefault(); Game.Direction = 1; }
+	else if(c == 40 && d != 3) { e.preventDefault(); Game.Direction = 4; }
 	else if(c == 13) {
 		//Press Enter
 		if(Game.Paused){
