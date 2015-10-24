@@ -10,5 +10,6 @@ var Settings = {
 	FoodColor: 'red',
 	ScoreValue: 10,
 	ScoreBasedOnTime: false,
-	FruitPercentage: 0.75
+	FruitPercentage: 0.75,
+	FruitDuration: 5 //Seconds
 }

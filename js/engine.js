@@ -19,6 +19,7 @@ var Game = {
 	Score: 0,
 	Snake: [],
 	Food: {},
+	Bonus: {},
 	Loop: 0,
 	Fruits: [],
 	PreviousScoreTime: new Date().getTime(),
@@ -27,8 +28,9 @@ var Game = {
 	Init: function(){
 		Game.Direction = 1;
 		Game.Score = 0;
-		Game.CreateFood(true);
+		Game.CreateFood();
 		Game.CreateSnake();
+		Game.Bonus = {};
 		$('#score-num').text(Game.Score.toString());
 	},
 	
@@ -41,6 +43,7 @@ var Game = {
 		Game.MoveSnake();
 		Game.DrawSnake();
 		Game.DrawFood();
+		Game.DrawFruit();
 	},
 	
 	Update: function(){
@@ -80,15 +83,10 @@ var Game = {
 	},
 	
 	DrawFood: function(){
-		if(!Game.Food.fruit){
-			Game.DrawCircle(Game.Food.x, Game.Food.y);	
-		} else {
-			Game.DrawFruit();
-		}
-		
+		Game.DrawCircle(Game.Food.x, Game.Food.y);	
 	},
 	
-	CreateFood: function(start){
+	CreateFood: function(){
 		var cw = Settings.BlockSize;
 		var correct = false;
 				
@@ -96,9 +94,6 @@ var Game = {
 			Game.Food = {
 				x: Math.round(Math.random()*(width - cw)/cw), 
 				y: Math.round(Math.random()*(height - cw)/cw), 
-				fruit: false,
-				img: null,
-				value: Settings.ScoreValue
 			};
 			correct = true;
 			for(var i = 0; i < Game.Snake.length; i++){
@@ -109,18 +104,7 @@ var Game = {
 			}
 		}
 		
-		var percent = Math.random();
-		if(percent > Settings.FruitPercentage && !start){
-			var fruit = Game.Fruits[Math.floor(Math.random()*Game.Fruits.length)];
-			Game.Food.fruit = true;
-			Game.Food.img = fruit.img;
-			Game.Food.value = fruit.value;
-			Game.DrawFruit();
-		} else {
-			Game.DrawCircle(Game.Food.x, Game.Food.y);
-			Game.Food.fruit = false;
-			Game.Food.img = null;
-		}
+		Game.DrawCircle(Game.Food.x, Game.Food.y);
 	},
 	
 	MoveSnake: function(){
@@ -144,9 +128,16 @@ var Game = {
 		//Create tail and put it on first position of Snake
 		if(headx == Game.Food.x && heady == Game.Food.y){
 			var tail = {x: headx, y: heady};
-			Game.AddScore();
+			Game.AddScore(Settings.ScoreValue);
 			//Create new food
 			Game.CreateFood();
+			Game.AddBonus();
+		} else if(headx == Game.Bonus.x && heady == Game.Bonus.y){
+			Game.AddScore(Game.Bonus.value);
+			Game.Bonus = {};
+			var tail = Game.Snake.pop();
+			tail.x = headx; 
+			tail.y = heady;
 		} else {
 			var tail = Game.Snake.pop();
 			tail.x = headx; 
@@ -191,13 +182,20 @@ var Game = {
 		ctx.fill();
 	},
 	
-	AddScore: function(){
-		if(Settings.ScoreBasedOnTime){
-			var time = new Date().getTime() - Game.PreviousScoreTime;
-		} else {
-			Game.Score += Game.Food.value;
-		}
-		$('#score-num').text(Game.Score.toString());		
+	AddScore: function(value){
+		Game.Score += value;
+		$('#score-num').text(Game.Score.toString());	
+		var msg = $('<div></div>')
+			.addClass('bonus-text')
+			.text('+' + value)
+			.show();
+		$('#game-container').append(msg);
+		setTimeout(function() {
+			msg.addClass('big').fadeOut(500, function(){
+				$(this).removeClass('big');
+			});
+		}, 100);
+		
 	},
 	
 	Lose: function(){
@@ -208,10 +206,46 @@ var Game = {
 		Game.New = true;
 	},
 	
+	AddBonus: function(){
+		var percent = Math.random();
+		if(percent > Settings.FruitPercentage && !Game.Bonus.active){
+			//Adding bonus		
+			var cw = Settings.BlockSize;
+			var correct = false;
+					
+			while(!correct){
+				Game.Bonus = {
+					x: Math.round(Math.random()*(width - cw)/cw), 
+					y: Math.round(Math.random()*(height - cw)/cw),
+					active: true 
+				};
+				correct = true;
+				for(var i = 0; i < Game.Snake.length; i++){
+					var c = Game.Snake[i];
+					if(c.x == Game.Bonus.x && c.y == Game.Bonus.y){
+						correct = false;
+					}
+				}
+			}
+			
+			var fruit = Game.Fruits[Math.floor(Math.random()*Game.Fruits.length)];
+			Game.Bonus.img = fruit.img;
+			Game.Bonus.value = fruit.value;
+			Game.DrawFruit();
+			setTimeout(function() { 
+				//Remove fruit
+				Game.Bonus = {};
+			}, Settings.FruitDuration * 1000);
+		}
+		
+	},
+	
 	DrawFruit: function(){
-		var cw = Settings.BlockSize;
-		ctx.drawImage(Game.Food.img, Game.Food.x * cw - 5, Game.Food.y * cw - 5, 
+		if(Game.Bonus.active){
+			var cw = Settings.BlockSize;
+			ctx.drawImage(Game.Bonus.img, Game.Bonus.x * cw - 5, Game.Bonus.y * cw - 5, 
 				Settings.BlockSize + 10, Settings.BlockSize + 10);
+		}
 	},
 	
 	PreloadImages: function(){

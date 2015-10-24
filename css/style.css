@@ -145,3 +145,17 @@ span#speed-max {
     top: 0;
     right: 0;
 }
+
+div.bonus-text {
+    position: absolute;
+    top: 55px;
+    left: 115px;
+    font-size: 1.5em;
+    color: #FFEF70;
+    transition: all 1s linear 0s;
+    display: none;
+}
+
+div.bonus-text.big{
+	font-size: 2.5em;	
+}
