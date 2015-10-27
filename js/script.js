@@ -5,7 +5,10 @@ $(document).ready(function(e) {
 	$(window).resize(function(){
 		var height = $(window).height();
 		$('body').css('height', height);
-		console.log('resize');
+		if(Game != undefined){
+			//Game.UpdateDimensions($('#canvas-container').width(), $('#canvas-container').height());
+		}
+		
 	});
 	
 	$('#speed-fader').change(function(){

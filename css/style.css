@@ -11,7 +11,7 @@
 body#main {
 	font-family: 'Rancho', sans-serif;
 	font-size: 16px;
-	background: url(../img/background.jpg) no-repeat bottom center scroll;
+	background: url(../img/background.jpg) no-repeat bottom center fixed;
     background-color: #000;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -20,7 +20,7 @@ body#main {
 }
 
 div#container {
-    width: 900px;
+    width: 75%;
     margin: 0 auto;
 	padding-top: 3em;
 	position: relative;
@@ -57,18 +57,19 @@ a.github-ribbon img {
 
 #canvas-container {
 	margin: 0 auto;
-	overflow: hidden;
-	width: 500px;	
-	height: 360px;
-	user-select: none;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	-o-user-select: none;
-	-webkit-touch-callout: none;
-	-webkit-user-drag: none;
-	line-height: 0px;
-	position: relative;
+    overflow: hidden;
+    width: 85%;
+    max-height: 360px;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-drag: none;
+    line-height: 0px;
+    position: relative;
+    max-width: 500px;
 }
 
 canvas#canvas {

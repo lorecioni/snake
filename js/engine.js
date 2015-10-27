@@ -258,6 +258,13 @@ var Game = {
 			Game.Fruits.push({img: img, value: values[i]});	
 		}
 		console.log('Images preloaded');
+	},
+	
+	UpdateDimensions: function(w, h){
+		width = w;
+		height = h;
+		canvas.width = w;
+		canvas.height = h;
 	}
 		
 
