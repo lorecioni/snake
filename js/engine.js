@@ -283,6 +283,10 @@ $(document).on('click', '#overlay-text', function(){
 	}
 });
 
+$(document).on('click', '#save', function(){
+	$('#save-score-box').fadeIn('fast');
+});
+
 $(document).on('keydown', function(e){
 	var e = e || window.event;
 	var c = e.keyCode;
