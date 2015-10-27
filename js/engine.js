@@ -55,6 +55,7 @@ var Game = {
 			Game.Init();
 		}
 		$('#canvas-overlay').fadeOut('fast');
+		$('#save').hide();
 		Game.Loop = setInterval(Game.Tick, 1000/Settings.FPS);	
 		Game.Paused = false;
 		Game.New = false;
@@ -204,6 +205,8 @@ var Game = {
 		$('#overlay-text').text('Try Again!');
 		Game.Paused = true;
 		Game.New = true;
+		
+		$('#save').show();
 	},
 	
 	AddBonus: function(){
