@@ -186,3 +186,37 @@ div#save-score-box {
     background-color: rgba(69, 47, 0, 0.4);
     border-radius: 5px;
 }
+
+div#save-score-inner {
+    width: 90%;
+    height: 86%;
+    padding: 5%;
+    text-align: center;
+}
+
+input#save-name {
+    display: block;
+    margin: 30px auto 0;
+    font-family: inherit;
+    font-weight: normal;
+    font-size: 0.3em;
+    padding: 10px;
+    line-height: 30px;
+}
+
+input#save-button {
+    display: block;
+    margin: 10px auto;
+    font-family: inherit;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 20pt;
+    transition: 0.3s all linear;
+    background-color: #F4F5A5;
+    cursor: pointer;
+}
+
+input#save-button:hover {
+    background-color: #EFCB19;
+}
