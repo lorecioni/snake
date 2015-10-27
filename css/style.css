@@ -160,3 +160,14 @@ div.bonus-text {
 div.bonus-text.big{
 	font-size: 2.5em;	
 }
+
+span#save {
+    display: none;
+    position: absolute;
+    top: 140px;
+    text-align: center;
+    width: 84%;
+    font-size: 0.6em;
+    transition: 1s all linear;
+    color: #FFE800;
+}
