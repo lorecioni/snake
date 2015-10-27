@@ -193,6 +193,7 @@ div#save-score-inner {
     height: 86%;
     padding: 5%;
     text-align: center;
+    line-height: 1em;
 }
 
 input#save-name {
@@ -205,8 +206,8 @@ input#save-name {
     line-height: 30px;
 }
 
-input#save-button {
-    display: block;
+input#save-button, #cancel-button {
+    display: inline-block;
     margin: 10px auto;
     font-family: inherit;
     padding: 10px;
@@ -218,6 +219,6 @@ input#save-button {
     cursor: pointer;
 }
 
-input#save-button:hover {
+input#save-button:hover, #cancel-button:hover {
     background-color: #EFCB19;
 }
