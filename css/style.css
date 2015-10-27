@@ -171,3 +171,7 @@ span#save {
     transition: 1s all linear;
     color: #FFE800;
 }
+
+span#save:hover {
+    font-size: 0.65em;
+}
