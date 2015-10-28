@@ -26,7 +26,9 @@
   ];
 
   var images = [
-    'img/background.jpg'
+    'img/background.jpg',
+	'img/yellow.jpg',
+	'img/loader.gif'
   ];
 
   var fruit_images = [

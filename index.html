@@ -34,9 +34,9 @@
                          <div id="canvas-overlay">
                              <div id="overlay-inner">
                                  <span id="overlay-text" data-action="play">Play</span>
-                                 
-                                 <!-- Saving scores -->
+                               <!-- Saving scores -->
                                  <div id="save">Save score</div>
+                                 <!-- Save score box inputs -->
                                  <div id="save-score-box">
                                  	<div id="save-score-inner">
                                  		<input type="text" id="save-name" placeholder="Name">
@@ -44,26 +44,47 @@
                                         <input type="button" id="cancel-button" value="Cancel">
                                     </div>
                                  </div>
+                                 <!-- !end box inputs -->
                              </div>
                          </div>
                      </div>
+                     <!-- Adding bonus score -->
                      <div class="bonus-text"></div>
+                     <!-- Score display -->
                      <div id="score-container">
                    		<div id="score-text">Score</div>
                        		<div id="score-num">0</div>
                    	</div>   
-                    <div id="speed-container">
+                    <!-- Speed selection -->
+               <div id="speed-container">
                    		<div id="speed-text">Speed</div>
                        	<input type="range" min="5" max="20" value="15" id="speed-fader">
                          <div id="speed-labels">  
                             <span id="speed-min">Min</span>
                             <span id="speed-max">Max</span>
                           </div>
-                   	</div>
+               </div>
            </div>
+           
+   			<!-- Standings -->
            <div id="standings">
-       
-       </div>
+           	<h2>Ranking</h2>
+            	<p id="standings-loader">
+           	  <img src="img/loader.gif" alt="Loading">
+               </p>
+       			 <ul id="standing-list">
+                 <li>
+                   <span class="position">1</span>
+                   <span class="name">Lorenzo</span>
+                   <span class="score">1213</span>
+                 </li>
+                 <li>
+                   <span class="position">2</span>
+                   <span class="name">Gianfrancos dscs</span>
+                   <span class="score">123</span>
+                 </li>       
+               </ul>
+   		  </div>
        <footer>Made by <a href="http://github.com/lorecioni" target="_blank">Lorenzo Cioni</a>
        <div id="social">
        <div class="fb-like" data-href="http://lorecioni.github.io/snake/" data-layout="box_count" data-action="like" data-show-faces="true" data-share="false"></div>

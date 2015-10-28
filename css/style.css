@@ -265,8 +265,10 @@ input#save-button:hover, #cancel-button:hover {
 }
 
 div#standings {
-    width: 80%;
-    margin: 2em auto 6em;
+    width: 50%;
+    margin: 2em auto 2em;
+    max-height: 300px;
+	position: relative;
 }
 
 div#social {
@@ -283,4 +285,22 @@ footer {
     font-weight: normal;
     font-size: 18pt;
     color: white;
+}
+
+#main h2 {
+    color: #FFEF70;
+    font-size: 3em;
+}
+
+p#standings-loader {
+    text-align: center;
+}
+
+p#standings-loader img {
+    width: 8%;
+}
+
+ul#standing-list {
+    padding: 0;
+    list-style: none;
 }

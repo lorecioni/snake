@@ -126,7 +126,6 @@ var Game = {
 			return;
 		}
 		
-		//If Snake's head is in the Food position, Snake eats it and grow
 		//Create tail and put it on first position of Snake
 		if(headx == Game.Food.x && heady == Game.Food.y){
 			var tail = {x: headx, y: heady};
