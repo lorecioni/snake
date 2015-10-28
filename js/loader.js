@@ -77,7 +77,7 @@
     }
   }
   
- 
+
   //Preload images
   for(var k = 0; k < images.length; k++) {
     img = new Image();
