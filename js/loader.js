@@ -77,14 +77,12 @@
     }
   }
   
-
   //Preload images
   for(var k = 0; k < images.length; k++) {
     img = new Image();
 	 img.src = fruit_images[k];
     img.onload = function() {
 		  counter++;
-		  console.log(counter);
 		  percent = Math.floor(((counter)/size*100));
 		  loading.width(percent + "%");
 		  loadText.text("Loading... " + percent + "%");
@@ -102,7 +100,6 @@
 	 Game.Fruits.push({img: fruit_images[j], value: fruit_values[j]});	
     img.onload = function() {
 		  counter++;
-		  console.log(counter);
 		  percent = Math.floor(((counter)/size*100));
 		  loading.width(percent + "%");
 		  loadText.text("Loading... " + percent + "%");

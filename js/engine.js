@@ -205,7 +205,7 @@ var Game = {
 		$('#overlay-text').text('Try Again!');
 		Game.Paused = true;
 		Game.New = true;
-		
+		$("#speed-fader").prop('disabled', false);
 		$('#save').show();
 	},
 	
@@ -267,6 +267,7 @@ $(document).on('click', '#overlay-text', function(){
 	var action = $(this).data('action');
 	if (action == 'play'){
 		Game.Play();
+		$("#speed-fader").prop('disabled', true);
 	}
 });
 

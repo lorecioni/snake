@@ -204,13 +204,14 @@ div.bonus-text.big{
 div#save {
     display: none;
     position: absolute;
-    top: 140px;
+    top: 240px;
     text-align: center;
     width: 84%;
     font-size: 0.6em;
     transition: 0.5s all linear;
     color: #FFE800;
 	cursor: pointer;
+	line-height: 1em;
 }
 
 div#save:hover {
