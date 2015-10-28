@@ -11,6 +11,17 @@
 		<link href="css/normalize.css" rel="stylesheet"/>    
 	</head>
 	<body id="main">
+    	<!-- Loading screen -->
+        <div id="loader">
+          <h1 id="loader-title">Snake</h1>
+          <p id="loading-text">Loading...</p>
+          <div id="bar-container">
+            <div id="bar"></div>
+          </div>
+        </div>
+        <!-- end loading screen -->
+        
+        <!-- Main container -->
         <div id="container">
         	<a href="http://lorecioni.github.io/snake/">
             <h1>Snake</h1>
@@ -18,10 +29,13 @@
              <h3>A pure HTML5 classic game</h3>
              <div id="game-container">
                  <div id="canvas-container">
+                 	   <!-- Canvas -->
                      <canvas id="canvas" width="500px" height="360px">Your browser doesn't support HTML5! Please upgrade your browser.</canvas>
                          <div id="canvas-overlay">
                              <div id="overlay-inner">
                                  <span id="overlay-text" data-action="play">Play</span>
+                                 
+                                 <!-- Saving scores -->
                                  <div id="save">Save score</div>
                                  <div id="save-score-box">
                                  	<div id="save-score-inner">
@@ -33,7 +47,7 @@
                              </div>
                          </div>
                      </div>
-                     <div class="bonus-text">+10</div>
+                     <div class="bonus-text"></div>
                      <div id="score-container">
                    		<div id="score-text">Score</div>
                        		<div id="score-num">0</div>

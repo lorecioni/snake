@@ -33,13 +33,19 @@ a.github-ribbon {
 }
 
 	
-#main h1 {
+#main h1, h1#loader-title {
     font-size: 7em;
     text-align: center;
     color: #FFEF70;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.72);
     margin-top: 0;
     margin-bottom: 30px;
+}
+
+h1#loader-title {
+    font-size: 2.5em;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 
 #main h3 {
@@ -56,6 +62,26 @@ a.github-ribbon {
 
 a:hover, a:focus {
 	text-decoration: none;
+}
+
+div#loader {
+    width: 100%;
+    background-color: #7B9D00;
+    position: fixed;
+    z-index: 1000;
+    text-align: center;
+    color: white;
+    font-size: 30pt;
+    font-weight: normal;
+}
+
+div#bar-container {
+    width: 40%;
+    height: 39px;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+	position: relative;
 }
 
 /* GAME

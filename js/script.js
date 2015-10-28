@@ -1,10 +1,12 @@
 $(document).ready(function(e) {
     var height = $(window).height();
 	$('body').css('height', height);
+	$('#loader').css('height', height);
 
 	$(window).resize(function(){
 		var height = $(window).height();
 		$('body').css('height', height);
+		$('#loader').css('height', height);
 		if(Game != undefined){
 			//Game.UpdateDimensions($('#canvas-container').width(), $('#canvas-container').height());
 		}
