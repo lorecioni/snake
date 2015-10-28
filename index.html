@@ -47,12 +47,20 @@
                           </div>
                    	</div>
            </div>
-           
+           <div id="standings">
+       
+       </div>
+       <footer>Made by <a href="http://github.com/lorecioni" target="_blank">Lorenzo Cioni</a>
+       <div id="social">
+       <div class="fb-like" data-href="http://lorecioni.github.io/snake/" data-layout="box_count" data-action="like" data-show-faces="true" data-share="false"></div>
+               <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://lorecioni.github.io/snake/" data-size="large">Tweet</a>
+               </div>
+       </footer>
 		</div>
        <a href="https://github.com/lorecioni/snake" target="_blank" class="github-ribbon">
-			<img src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub">
+			<img src="https://s3.amazonaws.com/github/ribbons/forkme_left_orange_ff7600.png" alt="Fork me on GitHub">
 		</a>
-       
+
        <!-- Load scripts -->
        <script src="js/jquery-2.1.4.min.js"></script>
        <script src="js/bootstrap.min.js"></script>
@@ -60,5 +68,15 @@
        <script src="js/settings.js"></script>	
        <script src="js/script.js"></script>	
 		<script src="js/engine.js"></script>
+        
+        <div id="fb-root"></div>
+		<script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/it_IT/sdk.js#xfbml=1&version=v2.5&appId=786477028052582";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 	</body>
 </html>

@@ -315,10 +315,10 @@ $(document).on('keydown', function(e){
 	var d = Game.Direction;
 	//Arrow keys
 	//Directions: 1 : 'right', 2 : 'left', 3 : 'up', 4 : 'down'
-	if((c == 37 || c == 100)&& d != 1) { Game.Direction = 2; }
-	else if((c == 38 || c == 104) && d != 4) { Game.Direction = 3; }
-	else if((c == 39 || c == 102)&& d != 2) { Game.Direction = 1; }
-	else if((c == 40 || c == 101) && d != 3) { Game.Direction = 4; }
+	if((c == 37 || c == 100)&& d != 1) { Game.Direction = 2; return false;}
+	else if((c == 38 || c == 104) && d != 4) { Game.Direction = 3; return false;}
+	else if((c == 39 || c == 102)&& d != 2) { Game.Direction = 1; return false;}
+	else if((c == 40 || c == 101) && d != 3) { Game.Direction = 4; return false;}
 	else if(c == 13) {
 		//Press Enter
 		if(Game.Paused){
