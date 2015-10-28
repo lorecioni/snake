@@ -267,7 +267,6 @@ input#save-button:hover, #cancel-button:hover {
 div#standings {
     width: 50%;
     margin: 2em auto 2em;
-    max-height: 300px;
 	position: relative;
 	overflow: hidden;
 }
