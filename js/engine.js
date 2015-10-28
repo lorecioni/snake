@@ -263,6 +263,7 @@ var Game = {
 
 Game.Init();
 
+//Click on play button
 $(document).on('click', '#overlay-text', function(){
 	var action = $(this).data('action');
 	if (action == 'play'){
@@ -274,6 +275,7 @@ $(document).on('click', '#save', function(){
 	$('#save-score-box').fadeIn('fast');
 });
 
+//Click on save button
 $(document).on('click', '#save-button', function(){
 	var name = $('#save-name').val();
 	if(name.length > 0 && name != ''){

@@ -269,6 +269,7 @@ div#standings {
     margin: 2em auto 2em;
     max-height: 300px;
 	position: relative;
+	overflow: hidden;
 }
 
 div#social {
@@ -290,6 +291,8 @@ footer {
 #main h2 {
     color: #FFEF70;
     font-size: 3em;
+	 margin-top: 0.5em;
+    margin-bottom: 0.5em;
 }
 
 p#standings-loader {
@@ -331,5 +334,10 @@ span.score {
     width: 16%;
     text-align: right;
 	color: rgba(143, 0, 0, 0.72);
+}
 
+.scrollable {
+    overflow-y: scroll;
+    width: 104%;
+	max-height: 250px;
 }

@@ -7,10 +7,6 @@ $(document).ready(function(e) {
 		var height = $(window).height();
 		$('body').css('height', height);
 		$('#loader').css('height', height);
-		if(Game != undefined){
-			//Game.UpdateDimensions($('#canvas-container').width(), $('#canvas-container').height());
-		}
-		
 	});
 	
 	$('#speed-fader').change(function(){
@@ -20,7 +16,7 @@ $(document).ready(function(e) {
 	loadRanking();
 });
 
-
+//Loads ranking list from server
 function loadRanking(){	
 	$.ajax({
 			url: Settings.GetRankingUrl,
