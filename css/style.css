@@ -304,3 +304,32 @@ ul#standing-list {
     padding: 0;
     list-style: none;
 }
+
+#standing-list li {
+    background-color: rgba(225, 227, 127, 0.24);
+    padding: 10px;
+    font-size: 20pt;
+    font-weight: normal;
+    border-radius: 4px;
+    margin-bottom: 2px;
+    color: white;
+}
+
+span.position {
+    display: inline-block;
+    width: 10%;
+    color: rgb(254, 244, 161);
+}
+
+span.name {
+    display: inline-block;
+    width: 70%;
+}
+
+span.score {
+    display: inline-block;
+    width: 16%;
+    text-align: right;
+	color: rgba(143, 0, 0, 0.72);
+
+}
