@@ -97,7 +97,7 @@
   for(var j = 0; j < fruit_images.length; j++) {
     img = new Image();
 	 img.src = fruit_images[j];
-	 Game.Fruits.push({img: fruit_images[j], value: fruit_values[j]});	
+	 Game.Fruits.push({img: img, value: fruit_values[j]});	
     img.onload = function() {
 		  counter++;
 		  percent = Math.floor(((counter)/size*100));

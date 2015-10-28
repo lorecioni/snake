@@ -59,6 +59,7 @@ var Game = {
 		Game.Loop = setInterval(Game.Tick, 1000/Settings.FPS);	
 		Game.Paused = false;
 		Game.New = false;
+		$("#speed-fader").prop('disabled', true);
 	},
 	
 	Pause: function(){
@@ -250,7 +251,7 @@ var Game = {
 				Settings.BlockSize + 10, Settings.BlockSize + 10);
 		}
 	},
-	
+
 	UpdateDimensions: function(w, h){
 		width = w;
 		height = h;
@@ -267,7 +268,6 @@ $(document).on('click', '#overlay-text', function(){
 	var action = $(this).data('action');
 	if (action == 'play'){
 		Game.Play();
-		$("#speed-fader").prop('disabled', true);
 	}
 });
 

@@ -10,7 +10,7 @@ var Settings = {
 	FoodColor: 'red',
 	ScoreValue: 10,
 	ScoreBasedOnTime: false,
-	FruitPercentage: 0.75,
+	FruitPercentage: 0.8,
 	FruitDuration: 5, //Seconds,
 	
 	InsertScoreUrl: 'http://fifteen.altervista.org/insert.php'
