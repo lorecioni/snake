@@ -13,6 +13,7 @@ var Settings = {
 	FruitPercentage: 0.8,
 	FruitDuration: 5, //Seconds,
 	
-	InsertScoreUrl: 'http://fifteen.altervista.org/insert.php'
+	InsertScoreUrl: 'http://fifteen.altervista.org/insert.php',
+	GetRankingUrl: 'http://fifteen.altervista.org/get.php'
 	
 }

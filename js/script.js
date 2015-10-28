@@ -16,15 +16,37 @@ $(document).ready(function(e) {
 	$('#speed-fader').change(function(){
 		Settings.FPS = $(this).val();
 	});
+	
+	loadRanking();
 });
 
 
-function preload(arrayOfImages) {
-    $(arrayOfImages).each(function(){
-        $('<img/>')[0].src = this;
-    });
+function loadRanking(){	
+	$.ajax({
+			url: Settings.GetRankingUrl,
+			type: 'GET',
+			dataType: 'json',
+			crossDomain:true,
+			success: function(data){
+				console.log('Ranking retrieved!');
+				$('#standings-loader').hide();
+				for(var rank in data){
+					var li = $('<li></li>');
+					var position = $('<span></span>')
+						.addClass('position')
+						.text(data[rank].position);
+					var name = $('<span></span>')
+						.addClass('name')
+						.text(data[rank].name);
+					var score = $('<span></span>')
+						.addClass('score')
+						.text(data[rank].score);
+					li.append(position).append(name).append(score);
+					$('#standing-list').append(li);	
+				}
+			}
+		});	
 }
-
 
 CanvasRenderingContext2D.prototype.roundRect = function (x, y, w, h, r) {
   if (w < 2 * r) r = w / 2;
