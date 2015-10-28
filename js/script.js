@@ -18,6 +18,8 @@ $(document).ready(function(e) {
 
 //Loads ranking list from server
 function loadRanking(){	
+	$('#standings-loader').hide();
+	$('#standing-list').empty();
 	$.ajax({
 			url: Settings.GetRankingUrl,
 			type: 'GET',
