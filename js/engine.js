@@ -287,6 +287,18 @@ $(document).on('click', '#save', function(){
 	$('#save-score-box').fadeIn('fast');
 });
 
+$(document).on('click', '#save-button', function(){
+	$.ajax({
+		url: Settings.InsertScoreUrl + 'name=Lore&score=19',
+		type: 'GET',
+		dataType: 'html',
+		crossDomain:true,
+		success: function(data){
+			console.log(data);	
+		}
+	});
+});
+
 $(document).on('keydown', function(e){
 	var e = e || window.event;
 	var c = e.keyCode;

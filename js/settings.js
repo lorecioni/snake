@@ -11,5 +11,8 @@ var Settings = {
 	ScoreValue: 10,
 	ScoreBasedOnTime: false,
 	FruitPercentage: 0.75,
-	FruitDuration: 5 //Seconds
+	FruitDuration: 5, //Seconds,
+	
+	InsertScoreUrl: 'http://fifteen.altervista.org/insert.php'
+	
 }
