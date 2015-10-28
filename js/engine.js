@@ -286,7 +286,8 @@ $(document).on('click', '#save-button', function(){
 			dataType: 'html',
 			crossDomain:true,
 			success: function(data){
-				console.log('Score added correctly!');	
+				console.log('Score added correctly!');
+				loadRanking();
 			}
 		});
 		$('#save-score-box').fadeOut('fast');
