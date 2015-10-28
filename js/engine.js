@@ -251,18 +251,6 @@ var Game = {
 		}
 	},
 	
-	PreloadImages: function(){
-		images = ['img/ciliegia.png', 'img/orange.png', 'img/banana.png',
-					'img/pera.png', 'img/apple.png', 'img/fragola.png'];
-		values = [15, 20, 25, 30, 35, 40];
-		for(var i = 0; i < images.length; i++){
-			var img = new Image();
-			img.src = images[i];
-			Game.Fruits.push({img: img, value: values[i]});	
-		}
-		console.log('Images preloaded');
-	},
-	
 	UpdateDimensions: function(w, h){
 		width = w;
 		height = h;
@@ -274,7 +262,6 @@ var Game = {
 };
 
 Game.Init();
-Game.PreloadImages();
 
 $(document).on('click', '#overlay-text', function(){
 	var action = $(this).data('action');

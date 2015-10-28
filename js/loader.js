@@ -1,5 +1,6 @@
 (function () {
 	
+/*
   // Preloading audio stuff
   var loadMusic = document.getElementById("start"),
       loadAngry = document.getElementById("angry_jump"), 
@@ -19,97 +20,96 @@
     loadTing,
   ];
 
-  var images = {
-    angry_pakia : "img/angry_pakia.png",
-    backtrees : "img/back_trees.png",
-    berries : "img/berries.png",
-    bg_combined: "img/bg_combined.png",
-    branch : "img/branch.png",
-    clouds : "img/clouds.png",
-    coins : "img/coins.png",
-    controls : "img/controls.png",
-    //dig : "img/dig.png",
-    fork_handle : "img/fork_handle.png",
-    fork_head : "img/fork_head.png",
-    fronttrees : "img/front_trees.png",
-    grass : "img/grass.png",
-    ground : "img/ground.png",
-    happy_pakia : "img/happy_pakia.png",
-    log : "img/log.png",
-    pappu : "img/pappu.png",
-    plank_bot : "img/plank_bot.png",
-    plank_mid : "img/plank_mid.png",
-    plank_top : "img/plank_top.png",
-    sad_pakia : "img/sad_pakia.png",
-    stand : "img/stand.png",
-    star : "img/star.png"
-  };
 
-  mit.image = {};
+*/	
+  var audios = [	
+  ];
 
-  // Get the size of an Obj
-  var size = Obj.size(images);
-  size += mit.audio.length;
+  var images = [
+    'img/background.jpg'
+  ];
 
-  var counter = 0,
-      percent = 0;
+  var fruit_images = [
+    'img/ciliegia.png', 
+	 'img/orange.png', 
+	 'img/banana.png',
+	 'img/pera.png', 
+	 'img/apple.png', 
+	 'img/fragola.png'
+  ];
+  
+  var fruit_values = [15, 20, 25, 30, 35, 40];
+	
+  console.log('Preload ' + audios.length + ' audios');
+  console.log('Preload ' + (images.length + fruit_images.length) + ' images');
+	
+  var size = images.length + fruit_images.length + audios.length;
 
-  var loading = document.getElementById("bar");
-  var loader = document.getElementById("loading");
-  var loadText = document.getElementById("loadText");
+  var counter = 0, percent = 0;
 
-  if(!($.browser.webkit && !$.browser.chrome)) {
-    for(var i = 0; i < mit.audio.length; i++) {
-      var file = mit.audio[i];
+  var loading = $("#bar");
+  var loader = $("#loader");
+  var loadText = $("#loading-text");
+  
+  //Preload audios
+  for(var i = 0; i < audios.length; i++) {
+    var file = audios[i];
 
-      if (isNaN(file.duration)) { 
-        file.addEventListener("loadeddata", function() {
-          counter++;
-          percent = Math.floor((counter/size*100));
-          loading.style.width = percent + "%";
-          loadText.innerHTML = "Loading... " + percent + "%";
+    if (isNaN(file.duration)) { 
+      file.addEventListener("loadeddata", function() {
+      counter++;
+      percent = Math.floor((counter/size*100));
+      loading.width(percent + "%");
+      loadText.text("Loading... " + percent + "%");
+      if(percent >= 100) {
+        loader.fadeOut();
+       }
+     });
+   } else {
+     counter++;
+     percent = Math.floor((counter/size*100));
+     loading.width(percent + "%");
+     loadText.text("Loading... " + percent + "%");
 
-          if(percent >= 100) {
-            $("#loading").fadeOut();
-            mit.main();
-          }
-        });
-      }
-
-      else {
-        counter++;
-        percent = Math.floor((counter/size*100));
-        loading.style.width = percent + "%";
-        loadText.innerHTML = "Loading... " + percent + "%";
-
-        if(percent >= 100) {
-          $("#loading").fadeOut();
-          mit.main();
-        }
-
+     if(percent >= 100) {
+       loader.fadeOut();
       }
     }
   }
-
-  else {counter += mit.audio.length}
-
-  for(var src in images) {
-    mit.image[src] = new Image();
-    mit.image[src].onload = function() {
-      counter++;
-
-      percent = Math.floor(((counter)/size*100));
-      loading.style.width = percent + "%";
-      loadText.innerHTML = "Loading... " + percent + "%";
-      
-      if(percent >= 100) {
-        $("#loading").fadeOut();
-        mit.main();
-      }
-
-    };
-
-    mit.image[src].src = images[src];
+  
+ 
+  //Preload images
+  for(var k = 0; k < images.length; k++) {
+    img = new Image();
+	 img.src = fruit_images[k];
+    img.onload = function() {
+		  counter++;
+		  console.log(counter);
+		  percent = Math.floor(((counter)/size*100));
+		  loading.width(percent + "%");
+		  loadText.text("Loading... " + percent + "%");
+		  
+		  if(percent >= 100) {
+			loader.fadeOut();
+		  }
+	  };
   }
-
+  
+  //Preload fruit images
+  for(var j = 0; j < fruit_images.length; j++) {
+    img = new Image();
+	 img.src = fruit_images[j];
+	 Game.Fruits.push({img: fruit_images[j], value: fruit_values[j]});	
+    img.onload = function() {
+		  counter++;
+		  console.log(counter);
+		  percent = Math.floor(((counter)/size*100));
+		  loading.width(percent + "%");
+		  loadText.text("Loading... " + percent + "%");
+		  
+		  if(percent >= 100) {
+			loader.fadeOut();
+		  }
+	  };
+  }
 }());
