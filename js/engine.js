@@ -288,15 +288,25 @@ $(document).on('click', '#save', function(){
 });
 
 $(document).on('click', '#save-button', function(){
-	$.ajax({
-		url: Settings.InsertScoreUrl + 'name=Lore&score=19',
-		type: 'GET',
-		dataType: 'html',
-		crossDomain:true,
-		success: function(data){
-			console.log(data);	
-		}
-	});
+	var name = $('#save-name').val();
+	if(name.length > 0 && name != ''){
+		var score = Game.Score;
+		$.ajax({
+			url: Settings.InsertScoreUrl + '?name=' + name +'&score=' + score,
+			type: 'GET',
+			dataType: 'html',
+			crossDomain:true,
+			success: function(data){
+				console.log('Score added correctly!');	
+			}
+		});
+		$('#save-score-box').fadeOut('fast');
+		$('#save').fadeOut('fast');
+	}
+});
+
+$(document).on('click', '#cancel-button', function(){
+	$('#save-score-box').fadeOut('fast');
 });
 
 $(document).on('keydown', function(e){
