@@ -232,7 +232,7 @@ var Game = {
 	Lose: function(){
 		clearInterval(Game.Loop);
 		$('#canvas-overlay').fadeIn('fast');
-		$('#overlay-text').text('Try Again!');
+		$('#overlay-text').html('Try Again!<br><span class="small">Press ENTER to restart</span>');
 		Game.Paused = true;
 		Game.New = true;
 		$("#speed-fader").prop('disabled', false);

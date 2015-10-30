@@ -134,7 +134,17 @@ div#overlay-inner {
     padding: .5em;
     text-align: center;
     font-size: 5em;
-    line-height: 3em;
+    line-height: 0.6em;
+}
+
+span.small {
+    font-size: 20pt;
+    color: rgba(255, 255, 255, 0.49);
+}
+
+span#overlay-text {
+    display: block;
+    margin-top: 1.1em;
 }
 
 div#game-container {
@@ -204,7 +214,7 @@ div.bonus-text.big{
 div#save {
     display: none;
     position: absolute;
-    top: 240px;
+    top: 260px;
     text-align: center;
     width: 84%;
     font-size: 0.6em;
