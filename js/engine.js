@@ -371,6 +371,9 @@ $(document).on('keydown', function(e){
 	else if((c == 39 || c == 102) && d != 3) { 
 		//Right arrow
 		Game.Direction = 1; 
+		if(Game.Paused){
+			Game.Play();
+		}
 		return false;
 	}
 	else if((c == 40 || c == 101) && d != 2) { 
