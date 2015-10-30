@@ -23,51 +23,61 @@
         
         <!-- Main container -->
         <div id="container">
+           <!-- Page header -->
         	<a href="http://lorecioni.github.io/snake/">
             <h1>Snake</h1>
-            </a>
-             <h3>A pure HTML5 classic game</h3>
-             <div id="game-container">
-                 <div id="canvas-container">
-                 	   <!-- Canvas -->
-                     <canvas id="canvas" width="500px" height="360px">Your browser doesn't support HTML5! Please upgrade your browser.</canvas>
-                         <div id="canvas-overlay">
-                             <div id="overlay-inner">
-                                 <span id="overlay-text" data-action="play">Play</span>
-                               <!-- Saving scores -->
-                                 <div id="save">Save score</div>
-                                 <!-- Save score box inputs -->
-                                 <div id="save-score-box">
-                                 	<div id="save-score-inner">
-                                 		<input type="text" id="save-name" placeholder="Name">
-                                    	<input type="button" id="save-button" value="Save">
-                                        <input type="button" id="cancel-button" value="Cancel">
-                                    </div>
-                                 </div>
-                                 <!-- !end box inputs -->
-                             </div>
-                         </div>
+           </a>
+           <h3>A pure HTML5 classic game</h3>
+           <!-- end header -->
+           
+           <div id="game-container">
+             <div id="canvas-container">
+               <!-- Canvas -->
+               <canvas id="canvas" width="500px" height="360px">Your browser doesn't support HTML5! Please upgrade your browser.</canvas>
+               
+               <!-- Canvas overlay box -->
+               <div id="canvas-overlay">
+                 <div id="overlay-inner">
+                   <span id="overlay-text" data-action="play">Play</span>
+                   
+                   <!-- Saving scores -->
+                   <div id="save">Save score</div>
+                     <!-- Save score box inputs -->
+                     <div id="save-score-box">
+                       <div id="save-score-inner">
+                         <input type="text" id="save-name" placeholder="Name">
+                         <input type="button" id="save-button" value="Save">
+                         <input type="button" id="cancel-button" value="Cancel">
+                       </div>
                      </div>
-                     <!-- Adding bonus score -->
-                     <div class="bonus-text"></div>
-                     <!-- Score display -->
-                     <div id="score-container">
-                   		<div id="score-text">Score</div>
-                       		<div id="score-num">0</div>
-                   	</div>   
-                    <!-- Speed selection -->
+                     <!-- !end box inputs -->
+                  </div>
+                </div>
+                <!-- end overlay -->
+               </div>
+               <!-- end canvas container -->
+               
+               <!-- Adding bonus score -->
+               <div class="bonus-text"></div>
+                 <!-- Score display -->
+                 <div id="score-container">
+                   <div id="score-text">Score</div>
+                   <div id="score-num">0</div>
+                 </div>   
+                    
+               <!-- Speed selection -->
                <div id="speed-container">
-                   		<div id="speed-text">Speed</div>
-                       	<input type="range" min="5" max="20" value="15" id="speed-fader">
-                         <div id="speed-labels">  
-                            <span id="speed-min">Min</span>
-                            <span id="speed-max">Max</span>
-                          </div>
+                 <div id="speed-text">Speed</div>
+                   <input type="range" min="5" max="20" value="15" id="speed-fader">
+                   <div id="speed-labels">  
+                     <span id="speed-min">Min</span>
+                     <span id="speed-max">Max</span>
+                   </div>
                </div>
            </div>
            
-   			<!-- Standings -->
-           <div id="standings">
+   			 <!-- Ranking list -->
+            <div id="standings">
            	<h2>Ranking</h2>
             	<p id="standings-loader">
            	  <img src="img/loader.gif" alt="Loading">
@@ -75,14 +85,22 @@
                <div class="scrollable">
        			 	<ul id="standing-list"></ul>
                </div>
-   		  </div>
-       <footer>Made by <a href="http://github.com/lorecioni" target="_blank">Lorenzo Cioni</a>
-       <div id="social">
-       <div class="fb-like" data-href="http://lorecioni.github.io/snake/" data-layout="box_count" data-action="like" data-show-faces="true" data-share="false"></div>
+   		    </div>
+          
+        	<!-- Footer -->
+           <footer>Made by <a href="http://github.com/lorecioni" target="_blank">Lorenzo Cioni</a>
+             <div id="social">
+               <!-- Facebook like button -->
+               <div class="fb-like" data-href="http://lorecioni.github.io/snake/" data-layout="box_count" data-action="like" data-show-faces="true" data-share="false"></div>
+               <!-- Twitter follow button -->
                <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://lorecioni.github.io/snake/" data-size="large">Tweet</a>
-               </div>
-       </footer>
+                </div>
+           </footer>
+           <!-- end Footer -->
 		</div>
+       <!-- end container -->
+        
+       <!-- Github ribbon -->
        <a href="https://github.com/lorecioni/snake" target="_blank" class="github-ribbon">
 			<img src="https://s3.amazonaws.com/github/ribbons/forkme_left_orange_ff7600.png" alt="Fork me on GitHub">
 		</a>
@@ -94,8 +112,9 @@
        <script src="js/settings.js"></script>	
        <script src="js/script.js"></script>	
 		<script src="js/engine.js"></script>
-        <script src="js/loader.js"></script>
+       <script src="js/loader.js"></script>
         
+        <!-- Facebook connection -->
         <div id="fb-root"></div>
 		<script>(function(d, s, id) {
           var js, fjs = d.getElementsByTagName(s)[0];
@@ -104,6 +123,18 @@
           js.src = "//connect.facebook.net/it_IT/sdk.js#xfbml=1&version=v2.5&appId=786477028052582";
           fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));</script>
+        
+        <!-- Twitter connection -->
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        
+        <!-- Analytics -->
+        <script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		  ga('create', 'UA-30452652-10', 'auto');
+		  ga('send', 'pageview');	
+		</script>
 	</body>
 </html>
