@@ -129,7 +129,15 @@ var Game = {
 		//Create tail and put it on first position of Snake
 		if(headx == Game.Food.x && heady == Game.Food.y){
 			var tail = {x: headx, y: heady};
-			Game.AddScore(Settings.ScoreValue + Math.round(Settings.FPS * 0.3));
+			var value = Settings.ScoreValue;
+			if(Settings.FPS < 10){
+				value += Math.floor(Settings.FPS * 0.1);
+			} else if(Settings.FPS >= 10 && Settings.FPS < 15){
+				value += Math.floor(Settings.FPS * 0.3);
+			} else if(Settings.FPS >= 15){
+				value += Math.floor(Settings.FPS * 0.5);
+			}
+			Game.AddScore(value);
 			//Create new food
 			Game.CreateFood();
 			Game.AddBonus();
