@@ -12,7 +12,10 @@ var Game = {
 	//Games variables
 	Paused: true,
 	New: false,
-	Direction: 1, //Directions: 1 : 'right', 2 : 'left', 3 : 'up', 4 : 'down'
+	Direction: 1, //Directions: 1 : 'right', 2 : 'up', 3 : 'left', 4 : 'down'
+	PreviousDirection: 1,
+	PreviousArrowDirection: 1,
+	NextDirection: null,
 	Score: 0,
 	Snake: [],
 	Food: {},
@@ -112,11 +115,32 @@ var Game = {
 		var headx = Game.Snake[0].x;
 		var heady = Game.Snake[0].y;
 		
-		var d = Game.Direction;
+		//Check if directionality change is too fast
+		var useNextDirection = false;
+		if((Game.PreviousDirection == 1 && Game.Direction == 3)
+			|| (Game.PreviousDirection == 3 && Game.Direction == 1)
+			|| (Game.PreviousDirection == 2 && Game.Direction == 4)
+			|| (Game.PreviousDirection == 4 && Game.Direction == 2)){
+			Game.NextDirection = Game.Direction;
+			Game.Direction = Game.PreviousArrowDirection;
+			useNextDirection = false;
+		} else {
+			useNextDirection = true;
+		}
 		
+		//If NextDirection is stored, use it
+		if(Game.NextDirection != null && useNextDirection){
+			Game.Direction = Game.NextDirection;
+			Game.NextDirection = null;	
+		}
+		
+		var d = Game.Direction;
+		Game.PreviousDirection = d;
+		
+		//Directions: 1 : 'right', 2 : 'up', 3 : 'left', 4 : 'down'
 		if(d == 1) headx++;
-		else if(d == 2) headx--;
-		else if(d == 3) heady--;
+		else if(d == 3) headx--;
+		else if(d == 2) heady--;
 		else if(d == 4) heady++;
 		
 		if(Game.CheckCollision(headx, heady)){
@@ -331,12 +355,29 @@ $(document).on('keydown', function(e){
 	var e = e || window.event;
 	var c = e.keyCode;
 	var d = Game.Direction;
+	Game.PreviousArrowDirection = d;
 	//Arrow keys
-	//Directions: 1 : 'right', 2 : 'left', 3 : 'up', 4 : 'down'
-	if((c == 37 || c == 100)&& d != 1) { Game.Direction = 2; return false;}
-	else if((c == 38 || c == 104) && d != 4) { Game.Direction = 3; return false;}
-	else if((c == 39 || c == 102)&& d != 2) { Game.Direction = 1; return false;}
-	else if((c == 40 || c == 101) && d != 3) { Game.Direction = 4; return false;}
+	//Directions: 1 : 'right', 2 : 'up', 3 : 'left', 4 : 'down'
+	if((c == 37 || c == 100)&& d != 1) {
+		//Left arrow	
+		Game.Direction = 3; 
+		return false;
+	}
+	else if((c == 38 || c == 104) && d != 4) { 
+		//Up arrow
+		Game.Direction = 2; 
+		return false;
+	}
+	else if((c == 39 || c == 102) && d != 3) { 
+		//Right arrow
+		Game.Direction = 1; 
+		return false;
+	}
+	else if((c == 40 || c == 101) && d != 2) { 
+		//Down arrow
+		Game.Direction = 4; 
+		return false;
+	}
 	else if(c == 13) {
 		//Press Enter
 		if(Game.Paused){
