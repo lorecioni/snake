@@ -16,6 +16,18 @@ $(document).ready(function(e) {
 	loadRanking();
 });
 
+
+function localStorageCheck(){ 
+    var test = 'test';
+    try {
+      localStorage.setItem(test, test);
+      localStorage.removeItem(test);
+      return true;
+    } catch(e) {
+      return false;
+    }
+}
+
 //Loads ranking list from server
 function loadRanking(){	
 	$('#standings-loader').hide();

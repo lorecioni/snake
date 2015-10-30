@@ -7,9 +7,6 @@ var rect = canvas.getBoundingClientRect();
 //Setting canvas resolution
 setCanvasDPI(canvas, 300);
 
-var img = new Image();
-img.src = "img/fragola.png";	
-
 var Game = {
 	
 	//Games variables
@@ -23,6 +20,7 @@ var Game = {
 	Loop: 0,
 	Fruits: [],
 	PreviousScoreTime: new Date().getTime(),
+	LocalStorage: localStorageCheck(),
 	
 	//Games methods
 	Init: function(){
@@ -285,22 +283,44 @@ $(document).on('click', '#save', function(){
 
 //Click on save button
 $(document).on('click', '#save-button', function(){
+	var score = Game.Score;
 	var name = $('#save-name').val();
-	if(name.length > 0 && name != ''){
-		var score = Game.Score;
-		$.ajax({
-			url: Settings.InsertScoreUrl + '?name=' + name +'&score=' + score,
-			type: 'GET',
-			dataType: 'html',
-			crossDomain:true,
-			success: function(data){
-				console.log('Score added correctly!');
-				loadRanking();
+	var same = 'false';
+	
+	if(name.length > 0 && name != '' && score > 0){
+		//Name and score valid
+	
+		if(Game.LocalStorage){
+			//Check if user has already played in localstorage
+			if(localStorage.getItem("username") == name){
+				//Same user
+				same = 'true';
+				console.log('Same user, overwriting result');
+			} else {
+				//new user	
+				localStorage.setItem("username", name); 
+				console.log('New user, insert score');
 			}
-		});
+		}
+		
+		//ajax call
+		$.ajax({
+				url: Settings.InsertScoreUrl + '?name=' + name +'&score=' + score + '&same=' + same,
+				type: 'GET',
+				dataType: 'html',
+				crossDomain:true,
+				success: function(data){
+					console.log('Score added correctly!');
+					loadRanking();
+				}
+			});
+			
 		$('#save-score-box').fadeOut('fast');
 		$('#save').fadeOut('fast');
 	}
+
+	
+
 });
 
 $(document).on('click', '#cancel-button', function(){
