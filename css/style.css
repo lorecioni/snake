@@ -264,7 +264,7 @@ input#save-button:hover, #cancel-button:hover {
     background-color: #EFCB19;
 }
 
-div#standings {
+section {
     width: 50%;
     margin: 2em auto 2em;
 	position: relative;
@@ -280,7 +280,6 @@ div#social {
 }
 
 footer {
-    padding: 2em;
     text-align: center;
     font-weight: normal;
     font-size: 18pt;
@@ -339,4 +338,11 @@ span.score {
     overflow-y: scroll;
     width: 104%;
 	max-height: 250px;
+}
+
+section#instructions p {
+    font-size: 1.5em;
+    font-weight: normal;
+    line-height: 1.3em;
+    color: white;
 }
