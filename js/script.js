@@ -30,7 +30,7 @@ function localStorageCheck(){
 
 //Loads ranking list from server
 function loadRanking(){	
-	$('#standings-loader').hide();
+	$('#standings-loader').show();
 	$('#standing-list').empty();
 	$.ajax({
 			url: Settings.GetRankingUrl,
