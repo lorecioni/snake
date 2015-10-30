@@ -361,11 +361,17 @@ $(document).on('keydown', function(e){
 	if((c == 37 || c == 100)&& d != 1) {
 		//Left arrow	
 		Game.Direction = 3; 
+		if(Game.Paused){
+			Game.Play();
+		}
 		return false;
 	}
 	else if((c == 38 || c == 104) && d != 4) { 
 		//Up arrow
 		Game.Direction = 2; 
+		if(Game.Paused){
+			Game.Play();
+		}
 		return false;
 	}
 	else if((c == 39 || c == 102) && d != 3) { 
@@ -379,6 +385,9 @@ $(document).on('keydown', function(e){
 	else if((c == 40 || c == 101) && d != 2) { 
 		//Down arrow
 		Game.Direction = 4; 
+		if(Game.Paused){
+			Game.Play();
+		}
 		return false;
 	}
 	else if(c == 13) {
