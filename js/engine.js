@@ -361,7 +361,7 @@ $(document).on('keydown', function(e){
 	if((c == 37 || c == 100)&& d != 1) {
 		//Left arrow	
 		Game.Direction = 3; 
-		if(Game.Paused){
+		if(Game.Paused && !Game.New){
 			Game.Play();
 		}
 		return false;
@@ -369,7 +369,7 @@ $(document).on('keydown', function(e){
 	else if((c == 38 || c == 104) && d != 4) { 
 		//Up arrow
 		Game.Direction = 2; 
-		if(Game.Paused){
+		if(Game.Paused && !Game.New){
 			Game.Play();
 		}
 		return false;
@@ -377,7 +377,7 @@ $(document).on('keydown', function(e){
 	else if((c == 39 || c == 102) && d != 3) { 
 		//Right arrow
 		Game.Direction = 1; 
-		if(Game.Paused){
+		if(Game.Paused && !Game.New){
 			Game.Play();
 		}
 		return false;
@@ -385,7 +385,7 @@ $(document).on('keydown', function(e){
 	else if((c == 40 || c == 101) && d != 2) { 
 		//Down arrow
 		Game.Direction = 4; 
-		if(Game.Paused){
+		if(Game.Paused && !Game.New){
 			Game.Play();
 		}
 		return false;
