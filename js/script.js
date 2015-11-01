@@ -14,6 +14,7 @@ $(document).ready(function(e) {
 	});
 	
 	loadRanking();
+	
 });
 
 
