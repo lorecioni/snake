@@ -290,22 +290,14 @@ var Game = {
 };
 
 
-
-	if($(window).width() > 500){
+if($(window).width() > 500){
 	console.log('Desktop version');  
 	Game.UpdateDimensions(500, 360, 300);
 } else {
 	console.log('Mobile version');
 	Game.UpdateDimensions(window.innerWidth - 20, 300, 150);
 	Settings.BlockSize = 20;
-	
 }
-	
-
-
-
-//Setting canvas resolution
-//setCanvasDPI(canvas, 300);
 
 Game.Init();
 
