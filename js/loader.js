@@ -3,23 +3,6 @@
 /*
   // Preloading audio stuff
   var loadMusic = document.getElementById("start"),
-      loadAngry = document.getElementById("angry_jump"), 
-      loadSad = document.getElementById("sad_jump"),
-      loadHappy = document.getElementById("happy_jump"),
-      loadFlap = document.getElementById("flap"),
-      loadTing = document.getElementById("ting");
-
-  // Preloading image stuff
-
-  mit.audio = [
-    loadMusic, 
-    loadAngry, 
-    loadSad, 
-    loadHappy,
-    loadFlap, 
-    loadTing,
-  ];
-
 
 */	
   var audios = [	
@@ -64,7 +47,7 @@
       loading.width(percent + "%");
       loadText.text("Loading... " + percent + "%");
       if(percent >= 100) {
-        loader.fadeOut();
+        fadeOutLoader();
        }
      });
    } else {
@@ -74,7 +57,7 @@
      loadText.text("Loading... " + percent + "%");
 
      if(percent >= 100) {
-       loader.fadeOut();
+       fadeOutLoader();
       }
     }
   }
@@ -90,7 +73,7 @@
 		  loadText.text("Loading... " + percent + "%");
 		  
 		  if(percent >= 100) {
-			loader.fadeOut();
+			fadeOutLoader();
 		  }
 	  };
   }
@@ -98,8 +81,8 @@
   //Preload fruit images
   for(var j = 0; j < fruit_images.length; j++) {
     img = new Image();
-	 img.src = fruit_images[j];
-	 Game.Fruits.push({img: img, value: fruit_values[j]});	
+    img.src = fruit_images[j];
+    Game.Fruits.push({img: img, value: fruit_values[j]});	
     img.onload = function() {
 		  counter++;
 		  percent = Math.floor(((counter)/size*100));
@@ -107,8 +90,16 @@
 		  loadText.text("Loading... " + percent + "%");
 		  
 		  if(percent >= 100) {
-			loader.fadeOut();
+			fadeOutLoader();
 		  }
 	  };
   }
+  
+  
+  function fadeOutLoader(){
+	  console.log('Loading complete!');
+	  $('#main').show();
+	  loader.fadeOut();
+  }
 }());
+

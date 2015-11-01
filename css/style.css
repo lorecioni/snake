@@ -9,6 +9,7 @@
 }
 
 body#main {
+	display: none;
 	font-family: 'Rancho', sans-serif;
 	font-size: 16px;
 	background: url(../img/background.jpg) no-repeat bottom center fixed;
