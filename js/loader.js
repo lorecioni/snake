@@ -5,6 +5,10 @@
   var loadMusic = document.getElementById("start"),
 
 */	
+
+  //Initialize Fastclick library for reducing delays
+  FastClick.attach(document.body);
+  
   var audios = [	
   ];
 
