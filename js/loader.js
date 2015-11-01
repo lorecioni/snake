@@ -29,9 +29,6 @@
   
   var fruit_values = [15, 20, 25, 30, 35, 40];
 	
-  console.log('Preload ' + audios.length + ' audios');
-  console.log('Preload ' + (images.length + fruit_images.length) + ' images');
-	
   var size = images.length + fruit_images.length + audios.length;
 
   var counter = 0, percent = 0;
@@ -101,7 +98,7 @@
   
   
   function fadeOutLoader(){
-	  console.log('Loading complete!');
+	  console.log('Preloading complete!');
 	  $('#main').show();
 	  loader.fadeOut();
   }

@@ -23,7 +23,6 @@ body#main {
 div#container {
     width: 75%;
     margin: 0 auto;
-	padding-top: 3em;
 	position: relative;
 }
 
@@ -40,7 +39,7 @@ a.github-ribbon {
     color: #FFEF70;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.72);
     margin-top: 0;
-    margin-bottom: 30px;
+    margin-bottom: 0;
 }
 
 h1#loader-title {
@@ -52,8 +51,9 @@ h1#loader-title {
 #main h3 {
     text-align: center;
     font-weight: normal;
-    margin-top: 0;
+	margin-top: -0.5em;
 	font-size: 1.7em;
+	margin-bottom: 1.5em;
 }
 
 #container a {
@@ -320,7 +320,7 @@ ul#standing-list {
 
 #standing-list li {
     background-color: rgba(225, 227, 127, 0.24);
-    padding: 10px;
+    padding: 5px 10px;
     font-size: 20pt;
     font-weight: normal;
     border-radius: 4px;
@@ -357,4 +357,68 @@ section#instructions p {
     font-weight: normal;
     line-height: 1.3em;
     color: white;
+}
+
+
+@media screen and (max-width: 480px) {
+	
+	body {
+		padding: 0 !important;
+		background: #7B9D00;
+	}
+	
+	a.github-ribbon {
+		display: none;
+	}
+	
+	#main h3 {
+		margin-bottom: 1em;
+	}
+	
+	div#game-container {
+    	position: relative;
+    	padding: 0 10px;
+	}
+	
+	#canvas-container {
+		width: auto;
+		max-height: 360px;
+	}
+	
+	div#score-container, div#speed-container {
+		position: initial;
+		display: inline-block;
+		margin-left: 2em;
+		font-size: .8em;
+		margin-top: 2em;
+	}
+	
+	div.bonus-text {
+    	top: 360px;
+    	left: 120px;
+	}
+	
+	div#overlay-inner {
+		width: 92%;
+		height: 91%;
+		padding: 13px;
+		text-align: center;
+		font-size: 4em;
+		line-height: 0.6em;
+	}
+	
+	div#save {
+		top: 200px;
+		width: 93%;
+	}
+	
+	section {
+		width: 90%; 
+	}
+}
+
+@media screen and (max-width: 980px) {
+	#container {
+		width: 100% !important;
+	}
 }

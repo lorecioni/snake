@@ -4,9 +4,6 @@ var width = canvas.width;
 var height = canvas.height;
 var rect = canvas.getBoundingClientRect();
 
-//Setting canvas resolution
-setCanvasDPI(canvas, 300);
-
 var Game = {
 	
 	//Games variables
@@ -281,24 +278,40 @@ var Game = {
 		}
 	},
 
-	UpdateDimensions: function(w, h){
+	UpdateDimensions: function(w, h, dpi){
 		width = w;
 		height = h;
 		canvas.width = w;
 		canvas.height = h;
+		setCanvasDPI(canvas, dpi);
 	}
 		
 
 };
 
+
+
+	if($(window).width() > 500){
+	console.log('Desktop version');  
+	Game.UpdateDimensions(500, 360, 300);
+} else {
+	console.log('Mobile version');
+	Game.UpdateDimensions(window.innerWidth - 20, 300, 150);
+	Settings.BlockSize = 20;
+	
+}
+	
+
+
+
+//Setting canvas resolution
+//setCanvasDPI(canvas, 300);
+
 Game.Init();
 
 //Click on play button
 $(document).on('click', '#overlay-text', function(){
-	var action = $(this).data('action');
-	if (action == 'play'){
-		Game.Play();
-	}
+	Game.Play();
 });
 
 $(document).on('click', '#save', function(){
