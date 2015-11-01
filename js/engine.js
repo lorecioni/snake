@@ -25,6 +25,8 @@ var Game = {
 	//Games methods
 	Init: function(){
 		Game.Direction = 1;
+		Game.PreviousDirection = 1;
+		Game.PreviousArrowDirection = 1;
 		Game.Score = 0;
 		Game.CreateFood();
 		Game.CreateSnake();
