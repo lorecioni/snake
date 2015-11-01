@@ -416,33 +416,21 @@ $(document).ready(function(){
 			if(direction == 'left' && d != 1) {
 				//Left arrow	
 				Game.Direction = 3; 
-				if(Game.Paused && !Game.New){
-						Game.Play();
-					}
 					return false;
 				}
 				else if(direction == 'up' && d != 4) { 
 					//Up arrow
 					Game.Direction = 2; 
-					if(Game.Paused && !Game.New){
-						Game.Play();
-					}
 					return false;
 				}
 				else if(direction == 'right' && d != 3) { 
 					//Right arrow
 					Game.Direction = 1; 
-					if(Game.Paused && !Game.New){
-						Game.Play();
-					}
 					return false;
 				}
 				else if(direction == 'down' && d != 2) { 
 					//Down arrow
 					Game.Direction = 4; 
-					if(Game.Paused && !Game.New){
-						Game.Play();
-					}
 					return false;
 				}
         },
