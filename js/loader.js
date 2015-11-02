@@ -99,7 +99,7 @@
   
   function fadeOutLoader(){
 	  console.log('Preloading complete!');
-	  $('#main').show();
+	  $('#container').show();
 	  loader.fadeOut();
   }
 }());

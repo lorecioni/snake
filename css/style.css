@@ -9,7 +9,6 @@
 }
 
 body#main {
-	display: none;
 	font-family: 'Rancho', sans-serif;
 	font-size: 16px;
 	background: url(../img/background.jpg) no-repeat bottom center fixed;
@@ -21,6 +20,7 @@ body#main {
 }
 
 div#container {
+	display: none;
     width: 75%;
     margin: 0 auto;
 	position: relative;
