@@ -7,20 +7,22 @@ var rect = canvas.getBoundingClientRect();
 var Game = {
 	
 	//Games variables
-	Paused: true,
-	New: false,
+	Paused: true, //True whe game is paused
+	New: false, //True when restarting game
 	Direction: 1, //Directions: 1 : 'right', 2 : 'up', 3 : 'left', 4 : 'down'
-	PreviousDirection: 1,
-	PreviousArrowDirection: 1,
-	NextDirection: null,
-	Score: 0,
-	Snake: [],
-	Food: {},
-	Bonus: {},
-	Loop: 0,
-	Fruits: [],
-	PreviousScoreTime: new Date().getTime(),
-	LocalStorage: localStorageCheck(),
+	PreviousDirection: 1, //Game previous direction (for preventing errors)
+	PreviousArrowDirection: 1, //Previous selection (for preventint errors)
+	NextDirection: null, //Next set direction (default null)
+	Score: 0, //Score
+	Snake: [], //Snake array
+	Food: {}, //Food struct
+	Bonus: {}, //Game bonuses
+	Loop: 0, //Main game loop
+	Fruits: [], //Game bonus fruits (loaded in loader.js)
+	PreviousScoreTime: new Date().getTime(), //Last score time, not used
+	LocalStorage: localStorageCheck(), //Check if browser has localstorage enabled
+	BorderActive: true, //Set border active or not
+	BorderRemaining: 0, //Num of snake parts to be traslated
 	
 	//Games methods
 	Init: function(){
@@ -142,15 +144,40 @@ var Game = {
 		else if(d == 2) heady--;
 		else if(d == 4) heady++;
 		
-		if(Game.CheckCollision(headx, heady)){
+		
+		if(Game.CheckSelfCollision(headx, heady)){
 			Game.Lose();
 			return;
+		}
+		
+		if(Game.BorderActive){
+			//If border is active move snake on the other side
+			if(headx == -1){
+				headx = width/cw;
+			} else if(headx >= width/cw){
+				headx = 0;
+			} else if(heady == -1){
+				heady = height/cw;
+			} else if(heady >= height/cw){
+				heady = 0;
+			}
+		} else {
+			//Borders not active
+			if(Game.CheckBorderCollision(headx, heady)){
+				Game.Lose();
+				return;
+			}
 		}
 		
 		//Create tail and put it on first position of Snake
 		if(headx == Game.Food.x && heady == Game.Food.y){
 			var tail = {x: headx, y: heady};
 			var value = Settings.ScoreValue;
+			
+			if(Game.BorderActive){
+				value = Settings.ScoreValueBorder;
+			}
+			
 			if(Settings.FPS < 10){
 				value += Math.floor(Settings.FPS * 0.1);
 			} else if(Settings.FPS >= 10 && Settings.FPS < 15){
@@ -181,14 +208,19 @@ var Game = {
 
 	},
 	
-	CheckCollision: function (x, y) {
+	//Check collision on border
+	CheckBorderCollision: function (x, y) {
 		var cw = Settings.BlockSize;
 		if(x == -1 || x >= width/cw 
 			|| y == -1 || y >= height/cw){
 			//Checks Snake's collisions on border
 			return true;
 		}
-		//Checks Snake's collisions itself 
+		return false;
+	},
+	
+	//Check collision on snake itself
+	CheckSelfCollision: function (x, y) {
 		for(var i = 0; i < Game.Snake.length; i++){
 			if(Game.Snake[i].x == x && Game.Snake[i].y == y)
 			 return true;
