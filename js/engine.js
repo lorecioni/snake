@@ -155,8 +155,10 @@ var Game = {
 				value += Math.floor(Settings.FPS * 0.1);
 			} else if(Settings.FPS >= 10 && Settings.FPS < 15){
 				value += Math.floor(Settings.FPS * 0.3);
-			} else if(Settings.FPS >= 15){
+			} else if(Settings.FPS >= 15 && Settings.FPS < 20){
 				value += Math.floor(Settings.FPS * 0.5);
+			} else if(Settings.FPS == 20){
+				value += Math.floor(Settings.FPS * 0.7);
 			}
 			Game.AddScore(value);
 			//Create new food
