@@ -152,7 +152,7 @@ div#game-container {
     position: relative;
 }
 
-div#score-container, div#speed-container {
+div#score-container, div#speed-container, div#border-selection-container {
     position: absolute;
     top: 0;
     left: 1em;
@@ -162,9 +162,17 @@ div#score-container, div#speed-container {
     text-align: center;
 }
 
-div#score-text, div#speed-text {
+div#border-selection-container {
+    top: 300px;
+}
+
+div#score-text {
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.59);
     font-size: 3em;
+}
+
+div#speed-text, div#border-text {
+    font-size: 2em;
 }
 
 div#score-num {
@@ -357,6 +365,69 @@ section#instructions p {
     font-weight: normal;
     line-height: 1.3em;
     color: white;
+}
+
+#border-selection-container input:empty
+{
+	margin-left: -999px;
+}
+
+#border-selection-container input:empty ~ label
+{
+	position: relative;
+	float: left;
+	line-height: 1.6em;
+	 cursor: pointer;
+     -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+  	  user-select: none;
+      margin-top: 0.3em;
+	 font-size: 1.3em;
+    color: rgba(255, 255, 255, 0.54);
+}
+
+#border-selection-container input:empty ~ label:before, 
+#border-selection-container input:empty ~ label:after
+{
+  position: absolute;
+	display: block;
+  content: ' ';
+  -webkit-transition: all 200ms ease-in;
+  transition: all 200ms ease-in;
+}
+
+#border-selection-container input:empty ~ label:before {
+    top: 11px;
+    left: 80px;
+    width: 44px;
+    height: 10px;
+    background-color: rgba(90, 90, 90, 0.52);
+    border-radius: 8px;
+}
+
+input.switch:empty ~ label:after {
+    top: 8px;
+    left: 77px;
+    bottom: 0.1em;
+    margin-left: 0.1em;
+    background-color: #fff;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.35)
+}
+
+#border-selection-container input:checked ~ label:before
+{
+	background-color: rgba(255, 239, 112, 0.56);
+}
+
+#border-selection-container input:checked ~ label:after
+{
+	    left: 107px;
+    background-color: rgb(255, 239, 112);
 }
 
 

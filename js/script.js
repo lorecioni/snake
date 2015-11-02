@@ -13,6 +13,10 @@ $(document).ready(function(e) {
 		Settings.FPS = $(this).val();
 	});
 	
+	$('#border-selector').change(function(){
+		Game.BorderActive = $(this).prop("checked");
+	});
+	
 	loadRanking();
 	
 });

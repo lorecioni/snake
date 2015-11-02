@@ -21,8 +21,7 @@ var Game = {
 	Fruits: [], //Game bonus fruits (loaded in loader.js)
 	PreviousScoreTime: new Date().getTime(), //Last score time, not used
 	LocalStorage: localStorageCheck(), //Check if browser has localstorage enabled
-	BorderActive: true, //Set border active or not
-	BorderRemaining: 0, //Num of snake parts to be traslated
+	BorderActive: false, //Set border active or not
 	
 	//Games methods
 	Init: function(){
@@ -62,6 +61,7 @@ var Game = {
 		Game.Paused = false;
 		Game.New = false;
 		$("#speed-fader").prop('disabled', true);
+		$("#border-selector").prop('disabled', true);
 	},
 	
 	Pause: function(){
@@ -269,6 +269,7 @@ var Game = {
 		Game.Paused = true;
 		Game.New = true;
 		$("#speed-fader").prop('disabled', false);
+		$("#border-selector").prop('disabled', false);
 		$('#save').show();
 	},
 	
@@ -324,7 +325,6 @@ var Game = {
 		
 
 };
-
 
 if($(window).width() > 500){
 	console.log('Desktop version');  
