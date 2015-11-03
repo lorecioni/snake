@@ -486,6 +486,14 @@ p#play-counter {
 	section {
 		width: 90%; 
 	}
+	
+	h1#loader-title {
+		margin-bottom: 0;
+	}
+	
+	div#bar-container {
+   		width: 70%;
+	}
 }
 
 @media screen and (max-width: 980px) {
