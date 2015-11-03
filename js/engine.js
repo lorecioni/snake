@@ -342,6 +342,10 @@ $(document).on('click', '#overlay-text', function(){
 	Game.Play();
 });
 
+$(document).on('touchstart', '#overlay-text', function(){
+	Game.Play();
+});
+
 $(document).on('click', '#save', function(){
 	$('#save-score-box').fadeIn('fast');
 });
