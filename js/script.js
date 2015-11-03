@@ -18,6 +18,7 @@ $(document).ready(function(e) {
 	});
 	
 	loadRanking();
+	getGameCount()
 	
 });
 
@@ -71,6 +72,19 @@ function addGameCount(){
 	crossDomain:true,
 	success: function(data){
 	  console.log('Added one game count!');
+	  }
+	});	
+}
+
+function getGameCount(){
+  $.ajax({
+    url: Settings.GetGameCountUrl,
+	type: 'GET',
+    dataType: 'html',
+	crossDomain:true,
+	success: function(data){
+	  $('#play-counter').text('Played ' + data + ' times');
+	  console.log('Game counter: ' + data);
 	  }
 	});	
 }

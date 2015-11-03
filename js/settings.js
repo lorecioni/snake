@@ -16,6 +16,7 @@ var Settings = {
 	
 	InsertScoreUrl: 'http://fifteen.altervista.org/insert.php',
 	GetRankingUrl: 'http://fifteen.altervista.org/get.php',
-	AddGameCountUrl: 'http://fifteen.altervista.org/add-game.php'
+	AddGameCountUrl: 'http://fifteen.altervista.org/add-game.php',
+	GetGameCountUrl: 'http://fifteen.altervista.org/get-game.php'
 	
 }

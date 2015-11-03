@@ -367,13 +367,11 @@ section#instructions p {
     color: white;
 }
 
-#border-selection-container input:empty
-{
+#border-selection-container input:empty{
 	margin-left: -999px;
 }
 
-#border-selection-container input:empty ~ label
-{
+#border-selection-container input:empty ~ label{
 	position: relative;
 	float: left;
 	line-height: 1.6em;
@@ -388,8 +386,7 @@ section#instructions p {
 }
 
 #border-selection-container input:empty ~ label:before, 
-#border-selection-container input:empty ~ label:after
-{
+#border-selection-container input:empty ~ label:after {
   position: absolute;
 	display: block;
   content: ' ';
@@ -419,17 +416,20 @@ input.switch:empty ~ label:after {
     box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.35)
 }
 
-#border-selection-container input:checked ~ label:before
-{
+#border-selection-container input:checked ~ label:before{
 	background-color: rgba(255, 239, 112, 0.56);
 }
 
-#border-selection-container input:checked ~ label:after
-{
+#border-selection-container input:checked ~ label:after{
 	    left: 107px;
     background-color: rgb(255, 239, 112);
 }
 
+p#play-counter {
+    font-size: 0.8em;
+    font-weight: normal;
+    color: rgba(255, 255, 255, 0.74);
+}
 
 @media screen and (max-width: 480px) {
 	
