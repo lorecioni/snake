@@ -456,7 +456,7 @@ input.switch:empty ~ label:after {
 		max-height: 360px;
 	}
 	
-	div#score-container, div#speed-container {
+	div#score-container, div#speed-container, div#border-selection-container {
 		position: initial;
 		display: inline-block;
 		margin-left: 2em;
