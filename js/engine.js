@@ -340,10 +340,12 @@ Game.Init();
 //Click on play button
 $(document).on('click', '#overlay-text', function(){
 	Game.Play();
+	addGameCount()
 });
 
 $(document).on('touchstart', '#overlay-text', function(){
 	Game.Play();
+	addGameCount()
 });
 
 $(document).on('click', '#save', function(){

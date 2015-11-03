@@ -63,6 +63,18 @@ function loadRanking(){
 		});	
 }
 
+function addGameCount(){
+  $.ajax({
+    url: Settings.AddGameCountUrl,
+	type: 'GET',
+    dataType: 'html',
+	crossDomain:true,
+	success: function(data){
+	  console.log('Added one game count!');
+	  }
+	});	
+}
+
 CanvasRenderingContext2D.prototype.roundRect = function (x, y, w, h, r) {
   if (w < 2 * r) r = w / 2;
   if (h < 2 * r) r = h / 2;

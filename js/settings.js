@@ -15,6 +15,7 @@ var Settings = {
 	FruitDuration: 5, //Seconds,
 	
 	InsertScoreUrl: 'http://fifteen.altervista.org/insert.php',
-	GetRankingUrl: 'http://fifteen.altervista.org/get.php'
+	GetRankingUrl: 'http://fifteen.altervista.org/get.php',
+	AddGameCountUrl: 'http://fifteen.altervista.org/add-game.php'
 	
 }
