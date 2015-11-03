@@ -37,7 +37,6 @@ function localStorageCheck(){
 //Loads ranking list from server
 function loadRanking(){	
 	$('#standings-loader').show();
-	$('#standing-list').empty();
 	$.ajax({
 			url: Settings.GetRankingUrl,
 			type: 'GET',
@@ -46,6 +45,7 @@ function loadRanking(){
 			success: function(data){
 				console.log('Ranking retrieved!');
 				$('#standings-loader').hide();
+				$('#standing-list').empty();
 				for(var rank in data){
 					var li = $('<li></li>');
 					var position = $('<span></span>')

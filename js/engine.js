@@ -352,8 +352,20 @@ $(document).on('click', '#save', function(){
 	$('#save-score-box').fadeIn('fast');
 });
 
+$(document).on('touchstart', '#save', function(){
+	$('#save-score-box').fadeIn('fast');
+});
+
 //Click on save button
 $(document).on('click', '#save-button', function(){
+	saveScore();
+});
+
+$(document).on('touchstart', '#save-button', function(){
+	saveScore();
+});
+
+function saveScore(){
 	var score = Game.Score;
 	var name = $('#save-name').val();
 	var same = 'false';
@@ -386,12 +398,17 @@ $(document).on('click', '#save-button', function(){
 				}
 			});
 			
-		$('#save-score-box').fadeOut('fast');
-		$('#save').fadeOut('fast');
+
 	}
-});
+	$('#save-score-box').fadeOut('fast');
+	$('#save').fadeOut('fast');
+}
 
 $(document).on('click', '#cancel-button', function(){
+	$('#save-score-box').fadeOut('fast');
+});
+
+$(document).on('touchstart', '#cancel-button', function(){
 	$('#save-score-box').fadeOut('fast');
 });
 
