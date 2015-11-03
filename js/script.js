@@ -72,6 +72,7 @@ function addGameCount(){
 	crossDomain:true,
 	success: function(data){
 	  console.log('Added one game count!');
+	  getGameCount()
 	  }
 	});	
 }
