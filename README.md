@@ -5,6 +5,7 @@
 ![Snake](http://lorecioni.github.io/snake/screenshot.jpg)
 
 **[PLAY THE GAME HERE](http://lorecioni.github.io/snake)**
+**[ANDROID](https://play.google.com/store/apps/details?id=com.lorenzocioni.snake)**
 
 ## Input
 
