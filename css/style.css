@@ -294,6 +294,11 @@ div#social {
     margin-top: 1em;
 }
 
+img#gplay {
+    margin: 40px auto -45px;
+    display: block;
+}
+
 .fb-like.fb_iframe_widget {
     margin-right: 1em !important;
 }
